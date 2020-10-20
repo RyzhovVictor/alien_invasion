@@ -30,8 +30,13 @@ class Ship():
             self.rect.x -= 1
         if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed
-    #     Обновление атрибута rect на основании self.x
+        #     Обновление атрибута rect на основании self.x
         self.rect.x = self.x
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        """Размещает коробль в центре нижней стороны"""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
